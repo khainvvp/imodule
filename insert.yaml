@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+  - name: deleteOldFile
+    ansible.builtin.file:
+      state: absent
+      path: /var/www/khainv/index.html
+    become: true
+  - name: create
+    copy: 
+      src: /home/ubuntu/index.html 
+      dest: /var/www/khainv
+    become: true
